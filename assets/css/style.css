@@ -481,6 +481,12 @@
     padding: 20px 7px;
     transition: color var(--transition-1);
   }
+
+  @media screen and (max-width: 768px){
+    .navbar-link{
+      padding: 25px 15px;
+    }
+  }
   
   .navbar-link:hover,
   .navbar-link:focus { color: var(--light-gray-70); }
