@@ -1345,7 +1345,13 @@
   
     .avatar-box { border-radius: 30px; }
   
-    .avatar-box img { width: 120px; }
+    .avatar-box img { width: 120px; border-radius: 35px;}
+
+    @media screen and (max-width: 768px){
+      .avatar-box img{
+        height: 100px!important;
+      }
+    }
   
     .info-content .name { margin-bottom: 15px; }
   
@@ -1545,6 +1551,14 @@
   
     .form-btn ion-icon { font-size: 18px; }
   
+  }
+
+  @media screen and (max-width: 579px){
+    .avatar-box img{
+      height: 80px;
+      border-radius: 25px;
+      object-fit: cover;
+    }
   }
   
   
