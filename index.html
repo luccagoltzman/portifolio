@@ -16,6 +16,7 @@
     - custom css link
   -->
   <link rel="stylesheet" href="./assets/css/style.css">
+  <link rel="stylesheet" href="./assets/css/animations.css">
 
   <!--
     - google font link
@@ -23,9 +24,21 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  
+  <!-- Meta tag para garantir comportamento responsivo correto -->
+  <meta name="theme-color" content="#121212">
 </head>
 
-<body>
+<body class="wave-bg">
+
+  <!-- Splash Screen -->
+  <div class="splash-screen">
+    <img src="./assets/images/logo_portifolio1.png" alt="Lucca Goltzman" class="splash-logo">
+    <h2>Lucca Goltzman</h2>
+    <div class="splash-progress-container">
+      <div class="splash-progress-bar"></div>
+    </div>
+  </div>
 
   <!--
     - #MAIN
@@ -170,7 +183,7 @@
         <ul class="navbar-list">
 
           <li class="navbar-item">
-            <button class="navbar-link  active" data-nav-link>Sobre</button>
+            <button class="navbar-link active" data-nav-link>Sobre</button>
           </li>
 
           <li class="navbar-item">
@@ -197,7 +210,7 @@
         - #ABOUT
       -->
 
-      <article class="Sobre  active" data-page="sobre">
+      <article class="Sobre active" data-page="sobre">
 
         <header>
           <h2 class="h2 article-title">Sobre mim</h2>
@@ -832,6 +845,8 @@
     - custom js link
   -->
   <script src="./assets/js/script.js"></script>
+  <script src="./assets/js/animations.js"></script>
+  <script src="./assets/js/particles.js"></script>
 
   <!--
     - ionicon link

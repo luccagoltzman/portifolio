@@ -1,0 +1,226 @@
+/* Animações para o Portfólio de Lucca Goltzman */
+
+/* Animação de entrada para elementos */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Animação para rotação de ícones */
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Animação para carregamento de página */
+@keyframes pageLoad {
+  0% {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Animação para o logo no splash screen */
+@keyframes logoReveal {
+  0% {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Animação de desvanecimento para o splash screen */
+@keyframes splashFadeOut {
+  0% {
+    opacity: 1;
+    visibility: visible;
+  }
+  99% {
+    opacity: 0;
+    visibility: visible;
+  }
+  100% {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+/* Animação de progresso para o splash screen */
+@keyframes progressBar {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+/* Classes de animação para aplicar nos elementos */
+.animate-fadeInUp {
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+/* Efeito de scroll suave para navegação */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Efeito de partículas/onda para fundo */
+/* .wave-bg {
+  position: relative;
+  overflow-x: hidden;
+}
+
+.wave-bg::before {
+  content: '';
+  position: fixed;
+  width: 200%;
+  height: 200%;
+  top: -50%;
+  left: -50%;
+  background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 25%, rgba(255,255,255,0) 70%);
+  transform-origin: center;
+  animation: rotate 20s linear infinite;
+  z-index: -1;
+  pointer-events: none;
+} */
+
+/* Splash Screen */
+.splash-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--smoky-black);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  animation: splashFadeOut 2s ease-in-out forwards;
+  animation-delay: 2.5s;
+}
+
+.splash-logo {
+  width: 120px;
+  height: 120px;
+  animation: logoReveal 1.5s ease-in-out;
+  margin-bottom: 30px;
+}
+
+.splash-progress-container {
+  width: 250px;
+  height: 3px;
+  background: var(--jet);
+  border-radius: 10px;
+  overflow: hidden;
+  margin-top: 20px;
+}
+
+.splash-progress-bar {
+  height: 100%;
+  background: linear-gradient(to right, var(--orange-yellow-crayola), var(--vegas-gold));
+  animation: progressBar 2s ease-in-out forwards;
+}
+
+/* Versão para dispositivos móveis */
+@media (max-width: 768px) {
+  .splash-logo {
+    width: 100px;
+    height: 100px;
+  }
+  
+  .splash-progress-container {
+    width: 200px;
+  }
+}
+
+/* Cursor personalizado */
+.custom-cursor {
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--orange-yellow-crayola);
+  border-radius: 50%;
+  position: fixed;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  transition: width 0.3s, height 0.3s, background-color 0.3s;
+  z-index: 9999;
+}
+
+.cursor-trail {
+  width: 8px;
+  height: 8px;
+  background-color: var(--orange-yellow-crayola);
+  border-radius: 50%;
+  position: fixed;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  transition: opacity 0.5s ease;
+  z-index: 9998;
+}
+
+.link-hover {
+  width: 40px;
+  height: 40px;
+  background-color: rgba(234, 171, 0, 0.2);
+  mix-blend-mode: difference;
+}
+
+body:hover .custom-cursor,
+body:hover .cursor-trail {
+  opacity: 1;
+}
+
+@media (max-width: 768px) {
+  .custom-cursor, .cursor-trail {
+    display: none;
+  }
+}
+
+/* Garantir que o body e html tenham comportamento de scroll correto */
+html, body {
+  height: 100%;
+  overflow-y: auto;
+  overscroll-behavior-y: none; /* Evita comportamentos indesejados de rolagem em alguns navegadores */
+}
+
+/* Ajustes para dispositivos móveis */
+@media (max-width: 768px) {
+  html, body {
+    overflow-x: hidden; /* Evita rolagem horizontal em dispositivos móveis */
+    -webkit-overflow-scrolling: touch; /* Melhora a rolagem em iOS */
+  }
+  
+  /* Ajustes para a classe has-particle-canvas */
+  body.has-particle-canvas {
+    position: relative; /* Garante que elementos filhos posicionados corretamente */
+  }
+  
+  /* Esconde o cursor personalizado em dispositivos móveis */
+  .custom-cursor, .cursor-trail {
+    display: none;
+  }
+} 
