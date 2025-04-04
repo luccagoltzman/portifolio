@@ -13,8 +13,19 @@ document.addEventListener('DOMContentLoaded', () => {
     initParallaxEffect();
   }
   
-  // Adicionar efeito de cursor personalizado (apenas em desktop)
-  if (!isMobile) {
+  // Em dispositivos móveis, garantir que o cursor nativo esteja ativo
+  if (isMobile) {
+    document.body.style.cursor = 'auto';
+    // Remover qualquer cursor personalizado que possa existir
+    const existingCursor = document.querySelector('.custom-cursor');
+    const existingTrail = document.querySelector('.cursor-trail');
+    if (existingCursor) existingCursor.remove();
+    if (existingTrail) existingTrail.remove();
+    
+    // Adicionar efeito de toque
+    initMobileTouchEffect();
+  } else {
+    // Versão desktop normal
     initCustomCursor();
   }
 });
@@ -51,7 +62,7 @@ function initParallaxEffect() {
   });
 }
 
-// Efeito de cursor personalizado
+// Efeito de cursor personalizado para desktop
 function initCustomCursor() {
   // Verificar se já existe um cursor personalizado para evitar duplicação
   if (document.querySelector('.custom-cursor')) return;
@@ -103,5 +114,57 @@ function initCustomCursor() {
     document.body.style.cursor = 'none';
     cursor.style.display = 'block';
     cursorTrail.style.display = 'block';
+  });
+}
+
+// Efeito de toque para dispositivos móveis com desaparecimento suave
+function initMobileTouchEffect() {
+  // Verificar se já existe um cursor personalizado para evitar duplicação
+  if (document.querySelector('.mobile-touch-effect')) return;
+  
+  // Criar o elemento de cursor personalizado para dispositivos móveis
+  const touchEffect = document.createElement('div');
+  touchEffect.classList.add('mobile-touch-effect');
+  document.body.appendChild(touchEffect);
+  
+  // Adicionar evento de toque na tela
+  document.addEventListener('touchstart', (e) => {
+    // Verificar se o toque foi em um elemento interativo onde não queremos o efeito
+    const target = e.target;
+    const skipElements = ['INPUT', 'TEXTAREA', 'BUTTON', 'A', 'SELECT'];
+    
+    // Verifique se o elemento alvo é um dos elementos que queremos ignorar
+    if (skipElements.includes(target.tagName) || 
+        target.classList.contains('navbar-link') || 
+        target.closest('.service-item') || 
+        target.closest('.project-item') ||
+        target.closest('.social-link')) {
+      // Não mostrar o efeito em elementos clicáveis/interativos
+      return;
+    }
+    
+    const touch = e.touches[0];
+    
+    // Posicionar o efeito no local do toque
+    touchEffect.style.left = `${touch.clientX}px`;
+    touchEffect.style.top = `${touch.clientY}px`;
+    
+    // Remover animação anterior e reset
+    touchEffect.style.animation = 'none';
+    touchEffect.offsetHeight; // Força reflow
+    
+    // Aplicar nova animação
+    touchEffect.style.opacity = '1';
+    touchEffect.style.animation = 'touchRipple 0.8s ease-out forwards';
+  });
+  
+  // Eventos opcionais para movimento do toque (arrastar)
+  document.addEventListener('touchmove', (e) => {
+    // Não fazemos nada durante o movimento para evitar problemas de desempenho
+  });
+  
+  // Garantir que a animação é limpa ao final
+  document.addEventListener('touchend', () => {
+    // A animação já cuida do desaparecimento
   });
 } 
