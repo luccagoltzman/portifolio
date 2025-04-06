@@ -167,7 +167,7 @@
   
   .sidebar,
   article {
-    background: var(--eerie-black-2);
+    background: hsl(240deg 2% 12% / 51%);
     border: 1px solid var(--jet);
     border-radius: 20px;
     padding: 15px;
