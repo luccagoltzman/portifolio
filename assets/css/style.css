@@ -355,17 +355,20 @@
   }
   
   .info_more-btn {
-    position: absolute;
-    top: -15px;
-    right: -15px;
-    border-radius: 0 15px;
-    font-size: 13px;
+    position: relative;
+    font-size: var(--fs-6);
+    font-weight: var(--fw-500);
     color: var(--orange-yellow-crayola);
     background: var(--border-gradient-onyx);
-    padding: 10px;
-    box-shadow: var(--shadow-2);
-    transition: var(--transition-1);
+    border-radius: 8px;
+    padding: 10px 15px;
+    margin: 10px auto 0;
+    transition: all 0.3s ease;
     z-index: 1;
+    box-shadow: var(--shadow-1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
   
   .info_more-btn::before {
@@ -374,17 +377,38 @@
     inset: 1px;
     border-radius: inherit;
     background: var(--bg-gradient-jet);
-    transition: var(--transition-1);
+    transition: background 0.3s ease;
     z-index: -1;
   }
   
   .info_more-btn:hover,
-  .info_more-btn:focus { background: var(--bg-gradient-yellow-1); }
+  .info_more-btn:focus {
+    background: var(--bg-gradient-yellow-1);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-2);
+  }
   
   .info_more-btn:hover::before,
-  .info_more-btn:focus::before { background: var(--bg-gradient-yellow-2); }
+  .info_more-btn:focus::before {
+    background: var(--bg-gradient-yellow-2);
+  }
   
-  .info_more-btn span { display: none; }
+  .info_more-btn span { 
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+  }
+  
+  .info_more-btn ion-icon {
+    display: inline-block;
+    margin-left: 5px;
+    transition: transform 0.2s ease;
+  }
+  
+  .info_more-btn:hover ion-icon {
+    transform: translateY(2px);
+  }
   
   .sidebar-info_more {
     opacity: 0;
@@ -423,8 +447,42 @@
   }
   
   .contact-info :is(.contact-link, time, address) {
-    color: var(--white-2);
-    font-size: var(--fs-7);
+    color: var(--light-gray);
+    font-size: var(--fs-8);
+    margin-bottom: 8px;
+  }
+  
+  /* Estilo para links de contato clicáveis */
+  .contact-link {
+    position: relative;
+    display: inline-block;
+    color: var(--orange-yellow-crayola) !important;
+    font-weight: var(--fw-500);
+    padding: 5px 10px;
+    border-radius: 6px;
+    background: var(--eerie-black-2);
+    box-shadow: var(--shadow-1);
+    transition: transform 0.3s, background 0.3s;
+    max-width: 100%;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+  
+  .contact-link:hover, .contact-link:focus {
+    transform: translateY(-2px);
+    background: var(--onyx);
+    box-shadow: var(--shadow-2);
+  }
+  
+  .contact-link::after {
+    content: "→";
+    display: inline-block;
+    margin-left: 5px;
+    transition: transform 0.3s;
+  }
+  
+  .contact-link:hover::after {
+    transform: translateX(3px);
   }
   
   .contact-info address { font-style: normal; }
@@ -433,18 +491,49 @@
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    gap: 15px;
-    padding-bottom: 4px;
-    padding-left: 7px;
+    gap: 20px;
+    padding: 0 5px;
+    margin-bottom: 4px;
   }
   
   .social-item .social-link {
-    color: var(--light-gray-70);
-    font-size: 18px;
+    color: var(--light-gray);
+    font-size: 22px;
+    position: relative;
+    background: var(--bg-gradient-jet);
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow-1);
   }
   
+  .social-item .social-link::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    background: var(--bg-gradient-yellow-1);
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
   
-  .social-item .social-link:hover { color: var(--light-gray); }
+  .social-item .social-link:hover { 
+    color: var(--orange-yellow-crayola);
+    transform: translateY(-3px);
+  }
+  
+  .social-item .social-link:hover::before {
+    opacity: 0.1;
+  }
+  
+  .social-item .social-link ion-icon {
+    position: relative;
+    z-index: 1;
+  }
   
   
   
@@ -1899,4 +1988,100 @@
   
     .timeline-text { max-width: 700px; }
   
+  }
+
+  /* Seção de links rápidos de contato */
+  .quick-contact {
+    margin-bottom: 30px;
+  }
+
+  .quick-contact-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 15px;
+    margin-top: 20px;
+  }
+
+  @media (min-width: 580px) {
+    .quick-contact-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  .quick-contact-link {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    border-radius: 12px;
+    background: var(--bg-gradient-jet);
+    box-shadow: var(--shadow-1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .quick-contact-link::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--bg-gradient-yellow-1);
+    opacity: 0;
+    transition: opacity 0.3s;
+    z-index: 0;
+  }
+
+  .quick-contact-link:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-3);
+  }
+
+  .quick-contact-link:hover::before {
+    opacity: 0.1;
+  }
+
+  .quick-contact-icon {
+    background: var(--border-gradient-onyx);
+    min-width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    margin-right: 15px;
+    box-shadow: var(--shadow-1);
+    position: relative;
+    z-index: 1;
+  }
+
+  .quick-contact-icon::before {
+    content: "";
+    position: absolute;
+    inset: 1px;
+    background: var(--eerie-black-1);
+    border-radius: inherit;
+    z-index: -1;
+  }
+
+  .quick-contact-icon ion-icon {
+    color: var(--orange-yellow-crayola);
+    font-size: 20px;
+    --ionicon-stroke-width: 35px;
+  }
+
+  .quick-contact-link span {
+    color: var(--light-gray);
+    font-size: var(--fs-6);
+    font-weight: var(--fw-500);
+    z-index: 1;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    transition: color 0.3s;
+  }
+
+  .quick-contact-link:hover span {
+    color: var(--white-1);
   }
