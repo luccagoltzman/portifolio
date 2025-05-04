@@ -238,7 +238,7 @@
 
         <section class="service">
 
-          <h3 class="h3 service-title">O que estou fazendo</h3>
+          <h3 class="h3 service-title">Especialidades</h3>
 
           <ul class="service-list">
 
@@ -366,47 +366,61 @@
 
         <section class="clients">
 
-          <h3 class="h3 clients-title">Participação</h3>
+          <h3 class="h3 clients-title">Colaborador</h3>
 
-          <ul class="clients-list has-scrollbar">
+          <div class="clients-carousel-container">
+            <button class="carousel-nav-btn prev-btn" aria-label="Ver colaborador anterior">
+              <ion-icon name="chevron-back-outline"></ion-icon>
+            </button>
+            
+            <ul class="clients-list has-scrollbar" id="clients-carousel">
 
-            <li class="clients-item">
-              <a href="#">
-                <img src="./assets/images/logo_agir.svg" alt="client logo">
-              </a>
-            </li>
-
-            <li class="clients-item">
+              <li class="clients-item">
                 <a href="#">
-                  <img src="./assets/images/logo_heineken_correcao (2).png" alt="client logo">
+                  <img src="./assets/images/logo_agir.svg" alt="client logo">
                 </a>
               </li>
 
-            <li class="clients-item">
-              <a href="#">
-                <img src="./assets/images/logo_klabin.svg" alt="client logo">
-              </a>
-            </li>
+              <li class="clients-item">
+                  <a href="#">
+                    <img src="./assets/images/logo_heineken_correcao (2).png" alt="client logo">
+                  </a>
+                </li>
 
-            <li class="clients-item">
-              <a href="#">
-                <img src="./assets/images/avina.svg" alt="client logo">
-              </a>
-            </li>
-
-            <li class="clients-item">
-              <a href="#">
-                <img src="./assets/images/logo_anata.svg" alt="client logo">
-              </a>
-            </li>
-
-            <li class="clients-item">
+              <li class="clients-item">
                 <a href="#">
-                  <img src="./assets/images/logo_garra.png" alt="client logo">
+                  <img src="./assets/images/logo_klabin.svg" alt="client logo">
                 </a>
               </li>
 
-          </ul>
+              <li class="clients-item">
+                <a href="#">
+                  <img src="./assets/images/avina.svg" alt="client logo">
+                </a>
+              </li>
+
+              <li class="clients-item">
+                <a href="#">
+                  <img src="./assets/images/logo_anata.svg" alt="client logo">
+                </a>
+              </li>
+
+              <li class="clients-item">
+                  <a href="#">
+                    <img src="./assets/images/logo_garra.png" alt="client logo">
+                  </a>
+                </li>
+
+            </ul>
+            
+            <button class="carousel-nav-btn next-btn" aria-label="Ver próximo colaborador">
+              <ion-icon name="chevron-forward-outline"></ion-icon>
+            </button>
+          </div>
+          
+          <div class="carousel-dots" id="carousel-dots">
+            <!-- Pontos indicadores serão gerados via JavaScript -->
+          </div>
 
         </section>
 
@@ -879,6 +893,7 @@
   <script src="./assets/js/script.js"></script>
   <script src="./assets/js/animations.js"></script>
   <script src="./assets/js/particles.js"></script>
+  <script src="./assets/js/carousel.js"></script>
 
   <!--
     - ionicon link
