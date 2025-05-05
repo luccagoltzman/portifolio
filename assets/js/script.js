@@ -129,19 +129,12 @@ form.addEventListener("submit", function (event) {
 
   // Codifica a mensagem para a URL
   const encodedMessage = encodeURIComponent(whatsappMessage);
-
-  // Seu número de WhatsApp com o código do país
   const phoneNumber = "+55098981358595";
-
-  // Monta o link do WhatsApp e redireciona o usuário
   window.location.href = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
 });
 
-// Variáveis de navegação da página
 const navigationLinks = document.querySelectorAll("[data-nav-link]");
 const pages = document.querySelectorAll("[data-page]");
-
-// Adiciona evento a todos os links de navegação
 for (let i = 0; i < navigationLinks.length; i++) {
   navigationLinks[i].addEventListener("click", function () {
     for (let i = 0; i < pages.length; i++) {
