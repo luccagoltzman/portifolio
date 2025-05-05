@@ -24,7 +24,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
-  
+
   <!-- Meta tag para garantir comportamento responsivo correto -->
   <meta name="theme-color" content="#121212">
 </head>
@@ -190,7 +190,7 @@
           </li>
 
           <li class="navbar-item">
-            <button class="navbar-link" data-nav-link>Portfolio</button>
+            <button class="navbar-link" data-nav-link>Projetos</button>
           </li>
 
           <li class="navbar-item">
@@ -372,7 +372,7 @@
             <button class="carousel-nav-btn prev-btn" aria-label="Ver colaborador anterior">
               <ion-icon name="chevron-back-outline"></ion-icon>
             </button>
-            
+
             <ul class="clients-list has-scrollbar" id="clients-carousel">
 
               <li class="clients-item">
@@ -382,10 +382,10 @@
               </li>
 
               <li class="clients-item">
-                  <a href="#">
-                    <img src="./assets/images/logo_heineken_correcao (2).png" alt="client logo">
-                  </a>
-                </li>
+                <a href="#">
+                  <img src="./assets/images/logo_heineken_correcao (2).png" alt="client logo">
+                </a>
+              </li>
 
               <li class="clients-item">
                 <a href="#">
@@ -406,18 +406,18 @@
               </li>
 
               <li class="clients-item">
-                  <a href="#">
-                    <img src="./assets/images/logo_garra.png" alt="client logo">
-                  </a>
-                </li>
+                <a href="#">
+                  <img src="./assets/images/logo_garra.png" alt="client logo">
+                </a>
+              </li>
 
             </ul>
-            
+
             <button class="carousel-nav-btn next-btn" aria-label="Ver próximo colaborador">
               <ion-icon name="chevron-forward-outline"></ion-icon>
             </button>
           </div>
-          
+
           <div class="carousel-dots" id="carousel-dots">
             <!-- Pontos indicadores serão gerados via JavaScript -->
           </div>
@@ -535,7 +535,7 @@
           <h3 class="h3 skills-title">Habilidades</h3>
 
           <div class="skills-grid content-card">
-            
+
             <div class="skill-card advanced">
               <div class="skill-icon">
                 <img src="./assets/images/tech/javascript.svg" alt="JavaScript">
@@ -631,7 +631,7 @@
               <h5 class="skill-name">Git</h5>
               <span class="skill-level">Intermediário</span>
             </div>
-            
+
           </div>
 
         </section>
@@ -646,10 +646,10 @@
         - #PORTFOLIO
       -->
 
-      <article class="portfolio" data-page="portfolio">
+      <article class="portfolio" data-page="projetos">
 
         <header>
-          <h2 class="h2 article-title">Portfolio</h2>
+          <h2 class="h2 article-title">Projetos</h2>
         </header>
 
         <section class="projects">
@@ -702,119 +702,322 @@
 
           <ul class="project-list">
 
-            <li class="project-item  active" data-filter-item data-category="web development">
-              <a href="#">
-
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
+            <li class="project-item active" data-filter-item data-category="web development">
+              <figure class="project-img">
+                <img src="./assets/images/OGA.jpeg" alt="OGA Monitoramento" loading="lazy">
+                <div class="project-buttons">
+                  <button class="project-btn project-detail-btn" data-project="oga">
                     <ion-icon name="eye-outline"></ion-icon>
-                  </div>
+                    <span>Detalhes</span>
+                  </button>
+                  <a href="https://ogamonitoramento.com.br/home" class="project-btn project-link-btn" target="_blank">
+                    <ion-icon name="open-outline"></ion-icon>
+                    <span>Visitar</span>
+                  </a>
+                </div>
+              </figure>
 
-                  <img src="./assets/images/OGA.jpeg" alt="finance" loading="lazy">
-                </figure>
-
-                <h3 class="project-title">OGA Monitoramento</h3>
-
-                <p class="project-category">Web development</p>
-
-              </a>
+              <h3 class="project-title">OGA Monitoramento</h3>
+              <p class="project-category">Web development</p>
             </li>
 
-            <li class="project-item  active" data-filter-item data-category="web development">
-              <a href="#">
-
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
+            <li class="project-item active" data-filter-item data-category="web development">
+              <figure class="project-img">
+                <img src="./assets/images/recarrega.jpeg" alt="PWA Recarrega" loading="lazy">
+                <div class="project-buttons">
+                  <button class="project-btn project-detail-btn" data-project="recarrega">
                     <ion-icon name="eye-outline"></ion-icon>
-                  </div>
+                    <span>Detalhes</span>
+                  </button>
+                  <a href="https://www.google.com/" class="project-btn project-link-btn" target="_blank">
+                    <ion-icon name="open-outline"></ion-icon>
+                    <span>Visitar</span>
+                  </a>
+                </div>
+              </figure>
 
-                  <img src="./assets/images/recarrega.jpeg" alt="orizon" loading="lazy">
-                </figure>
-
-                <h3 class="project-title">PWA Recarrega</h3>
-
-                <p class="project-category">Web development</p>
-
-              </a>
+              <h3 class="project-title">PWA Recarrega</h3>
+              <p class="project-category">Web development</p>
             </li>
 
-            <li class="project-item  active" data-filter-item data-category="web development">
-              <a href="#">
-
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
+            <li class="project-item active" data-filter-item data-category="web development">
+              <figure class="project-img">
+                <img src="./assets/images/ips_paracatu.jpeg" alt="IPS Paracatu" loading="lazy">
+                <div class="project-buttons">
+                  <button class="project-btn project-detail-btn" data-project="ipsparacatu">
                     <ion-icon name="eye-outline"></ion-icon>
-                  </div>
+                    <span>Detalhes</span>
+                  </button>
+                  <a href="https://www.ipsparacatu.com.br/home" class="project-btn project-link-btn" target="_blank">
+                    <ion-icon name="open-outline"></ion-icon>
+                    <span>Visitar</span>
+                  </a>
+                </div>
+              </figure>
 
-                  <img src="./assets/images/ips_paracatu.jpeg" alt="fundo" loading="lazy">
-                </figure>
-
-                <h3 class="project-title">IPS Paracatu</h3>
-
-                <p class="project-category">Web development</p>
-
-              </a>
+              <h3 class="project-title">IPS Paracatu</h3>
+              <p class="project-category">Web development</p>
             </li>
 
-            <li class="project-item  active" data-filter-item data-category="web development">
-              <a href="#">
-
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
+            <li class="project-item active" data-filter-item data-category="web development">
+              <figure class="project-img">
+                <img src="./assets/images/territorio_2030.jpeg" alt="Território 2030" loading="lazy">
+                <div class="project-buttons">
+                  <button class="project-btn project-detail-btn" data-project="territorio2030">
                     <ion-icon name="eye-outline"></ion-icon>
-                  </div>
+                    <span>Detalhes</span>
+                  </button>
+                  <a href="https://territorio2030.app.br/home" class="project-btn project-link-btn" target="_blank">
+                    <ion-icon name="open-outline"></ion-icon>
+                    <span>Visitar</span>
+                  </a>
+                </div>
+              </figure>
 
-                  <img src="./assets/images/territorio_2030.jpeg" alt="brawlhalla" loading="lazy">
-                </figure>
-
-                <h3 class="project-title">Território 2030</h3>
-
-                <p class="project-category">Web development</p>
-
-              </a>
+              <h3 class="project-title">Território 2030</h3>
+              <p class="project-category">Web development</p>
             </li>
 
-            <li class="project-item  active" data-filter-item data-category="applications">
-              <a href="#">
-
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
+            <li class="project-item active" data-filter-item data-category="applications">
+              <figure class="project-img">
+                <img src="./assets/images/cangalha.jpeg" alt="Cangalha Assistente Virtual" loading="lazy">
+                <div class="project-buttons">
+                  <button class="project-btn project-detail-btn" data-project="cangalha">
                     <ion-icon name="eye-outline"></ion-icon>
-                  </div>
+                    <span>Detalhes</span>
+                  </button>
+                  <a href="#" class="project-btn project-link-btn" target="_blank">
+                    <ion-icon name="open-outline"></ion-icon>
+                    <span>Visitar</span>
+                  </a>
+                </div>
+              </figure>
 
-                  <img src="./assets/images/cangalha.jpeg" alt="dsm." loading="lazy">
-                </figure>
-
-                <h3 class="project-title">Cangalha Assistente Virtual</h3>
-
-                <p class="project-category">Applications</p>
-
-              </a>
+              <h3 class="project-title">Cangalha Assistente Virtual</h3>
+              <p class="project-category">Applications</p>
             </li>
 
-            <li class="project-item  active" data-filter-item data-category="web development">
-              <a href="#">
-
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
+            <li class="project-item active" data-filter-item data-category="web development">
+              <figure class="project-img">
+                <img src="./assets/images/portifolio.jpeg" alt="Portfolio" loading="lazy">
+                <div class="project-buttons">
+                  <button class="project-btn project-detail-btn" data-project="portfolio">
                     <ion-icon name="eye-outline"></ion-icon>
-                  </div>
+                    <span>Detalhes</span>
+                  </button>
+                  <a href="#" class="project-btn project-link-btn" target="_blank">
+                    <ion-icon name="open-outline"></ion-icon>
+                    <span>Visitar</span>
+                  </a>
+                </div>
+              </figure>
 
-                  <img src="./assets/images/portifolio.jpeg" alt="metaspark" loading="lazy">
-                </figure>
-
-                <h3 class="project-title">Portifoio</h3>
-
-                <p class="project-category">Web development</p>
-
-              </a>
+              <h3 class="project-title">Portfolio</h3>
+              <p class="project-category">Web development</p>
             </li>
 
           </ul>
 
         </section>
 
-      </article>  
+        <div class="modal-container" data-project-modal-container>
+          <div class="overlay" data-project-overlay></div>
+
+          <!-- Modal OGA Monitoramento -->
+          <div class="project-modal" data-project-modal="oga">
+            <div class="project-modal-header">
+              <h3 class="project-modal-title">OGA Monitoramento</h3>
+              <button class="project-modal-close" data-project-modal-close>
+                <ion-icon name="close-outline"></ion-icon>
+              </button>
+            </div>
+
+            <div class="project-modal-content">
+              <div class="project-tech-list">
+                <span class="project-tech-item">Angular</span>
+                <span class="project-tech-item">TypeScript</span>
+                <span class="project-tech-item">Bootstrap</span>
+                <span class="project-tech-item">Laravel</span>
+                <span class="project-tech-item">MySQL</span>
+              </div>
+
+              <p class="project-description">
+                Sistema de monitoramento ambiental para os comitês de bacias hidrográficas de todo o Brasil.
+                Desenvolvido com Angular no frontend e Laravel no backend, o sistema
+                permite o gerenciamento de dados de monitoramento de bacias hidrográficas, questionários que
+                proporcionam
+                reflexões sobre o cuidado com o meio ambiente e a conservação dos recursos naturais, uma lista de ações
+                dinâmicas aonde o comitê pode cadastrar e executar para melhorar a qualidade da sua região, visualização
+                de relatórios e análises em tempo real.
+              </p>
+
+              <div class="project-gallery">
+                <div class="project-gallery-item">
+                  <img src="./assets/images/OGA.jpeg" alt="OGA Dashboard">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Modal PWA Recarrega -->
+          <div class="project-modal" data-project-modal="recarrega">
+            <div class="project-modal-header">
+              <h3 class="project-modal-title">PWA Recarrega</h3>
+              <button class="project-modal-close" data-project-modal-close>
+                <ion-icon name="close-outline"></ion-icon>
+              </button>
+            </div>
+
+            <div class="project-modal-content">
+              <div class="project-tech-list">
+                <span class="project-tech-item">Angular</span>
+                <span class="project-tech-item">TypeScript</span>
+                <span class="project-tech-item">PWA</span>
+                <span class="project-tech-item">Material UI</span>
+                <span class="project-tech-item">Laravel</span>
+                <span class="project-tech-item">MySQL</span>
+              </div>
+
+              <p class="project-description">
+                Aplicativo Progressive Web App (PWA) desenvolvido para reunir notícias e conteúdos sobre as oficinas,
+                como a agenda de próximos encontros e informações de apoio. O app permite que os usuários colaborem
+                entre si através de um chat interativo.
+              </p>
+
+              <div class="project-gallery">
+                <div class="project-gallery-item">
+                  <img src="./assets/images/recarrega.jpeg" alt="Recarrega App">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Modal IPS Paracatu -->
+          <div class="project-modal" data-project-modal="ipsparacatu">
+            <div class="project-modal-header">
+              <h3 class="project-modal-title">IPS Paracatu</h3>
+              <button class="project-modal-close" data-project-modal-close>
+                <ion-icon name="close-outline"></ion-icon>
+              </button>
+            </div>
+
+            <div class="project-modal-content">
+              <div class="project-tech-list">
+                <span class="project-tech-item">React</span>
+                <span class="project-tech-item">JavaScript</span>
+                <span class="project-tech-item">CSS3</span>
+                <span class="project-tech-item">PHP</span>
+              </div>
+
+              <p class="project-description">
+                Plataforma web para visualização de indicadores sociais e ambientais da cidade de Paracatu.
+                O sistema apresenta dados estatísticos em gráficos interativos que permitem análises comparativas
+                e acompanhamento de evolução dos índices ao longo do tempo.
+              </p>
+
+              <div class="project-gallery">
+                <div class="project-gallery-item">
+                  <img src="./assets/images/ips_paracatu.jpeg" alt="IPS Paracatu Dashboard">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Modal Território 2030 -->
+          <div class="project-modal" data-project-modal="territorio2030">
+            <div class="project-modal-header">
+              <h3 class="project-modal-title">Território 2030</h3>
+              <button class="project-modal-close" data-project-modal-close>
+                <ion-icon name="close-outline"></ion-icon>
+              </button>
+            </div>
+
+            <div class="project-modal-content">
+              <div class="project-tech-list">
+                <span class="project-tech-item">React</span>
+                <span class="project-tech-item">Node.js</span>
+                <span class="project-tech-item">MongoDB</span>
+                <span class="project-tech-item">Leaflet</span>
+              </div>
+
+              <p class="project-description">
+                Plataforma de planejamento territorial com mapeamento interativo e visualização de dados
+                geoespaciais. O sistema permite a criação de planos de desenvolvimento sustentável
+                com objetivos alinhados à Agenda 2030 da ONU.
+              </p>
+
+              <div class="project-gallery">
+                <div class="project-gallery-item">
+                  <img src="./assets/images/territorio_2030.jpeg" alt="Território 2030 Map">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Modal Cangalha Assistente Virtual -->
+          <div class="project-modal" data-project-modal="cangalha">
+            <div class="project-modal-header">
+              <h3 class="project-modal-title">Cangalha Assistente Virtual</h3>
+              <button class="project-modal-close" data-project-modal-close>
+                <ion-icon name="close-outline"></ion-icon>
+              </button>
+            </div>
+
+            <div class="project-modal-content">
+              <div class="project-tech-list">
+                <span class="project-tech-item">React Native</span>
+                <span class="project-tech-item">JavaScript</span>
+                <span class="project-tech-item">Firebase</span>
+                <span class="project-tech-item">API Integration</span>
+              </div>
+
+              <p class="project-description">
+                Aplicativo móvel que funciona como um assistente virtual para agricultores de pequeno porte.
+                O app oferece recomendações sobre plantio, clima e manejo de pragas, além de conectar
+                produtores locais a potenciais compradores.
+              </p>
+
+              <div class="project-gallery">
+                <div class="project-gallery-item">
+                  <img src="./assets/images/cangalha.jpeg" alt="Cangalha App">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Modal Portfolio -->
+          <div class="project-modal" data-project-modal="portfolio">
+            <div class="project-modal-header">
+              <h3 class="project-modal-title">Portfolio</h3>
+              <button class="project-modal-close" data-project-modal-close>
+                <ion-icon name="close-outline"></ion-icon>
+              </button>
+            </div>
+
+            <div class="project-modal-content">
+              <div class="project-tech-list">
+                <span class="project-tech-item">HTML5</span>
+                <span class="project-tech-item">CSS3</span>
+                <span class="project-tech-item">JavaScript</span>
+                <span class="project-tech-item">Responsive Design</span>
+              </div>
+
+              <p class="project-description">
+                Portfolio pessoal desenvolvido para apresentar meus projetos e habilidades como desenvolvedor.
+                O site conta com design responsivo, animações suaves e seções interativas para uma experiência
+                de usuário agradável em qualquer dispositivo.
+              </p>
+
+              <div class="project-gallery">
+                <div class="project-gallery-item">
+                  <img src="./assets/images/portifolio.jpeg" alt="Portfolio">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </article>
 
 
 
@@ -831,7 +1034,7 @@
 
         <section class="quick-contact">
           <h3 class="h3 form-title">Links Rápidos de Contato</h3>
-          
+
           <div class="quick-contact-grid">
             <a href="mailto:luccagoltzman@gmail.com" class="quick-contact-link">
               <div class="quick-contact-icon">
@@ -839,21 +1042,21 @@
               </div>
               <span>luccagoltzman@gmail.com</span>
             </a>
-            
+
             <a href="tel:+5598981358595" class="quick-contact-link">
               <div class="quick-contact-icon">
                 <ion-icon name="phone-portrait-outline"></ion-icon>
               </div>
               <span>(98) 98135-8595</span>
             </a>
-            
+
             <a href="https://www.linkedin.com/in/lucca-goltzman-20a1b8243/" class="quick-contact-link">
               <div class="quick-contact-icon">
                 <ion-icon name="logo-linkedin"></ion-icon>
               </div>
               <span>LinkedIn</span>
             </a>
-            
+
             <a href="https://github.com/luccagoltzman/" class="quick-contact-link">
               <div class="quick-contact-icon">
                 <ion-icon name="logo-github"></ion-icon>
@@ -912,6 +1115,7 @@
   <script src="./assets/js/animations.js"></script>
   <script src="./assets/js/particles.js"></script>
   <script src="./assets/js/carousel.js"></script>
+  <script src="./assets/js/project-modal.js"></script>
 
   <!--
     - ionicon link
