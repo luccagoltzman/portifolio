@@ -46,7 +46,7 @@ function ensureSplashScreenRemoval() {
   setTimeout(() => {
     document.body.style.overflow = '';
     document.documentElement.style.overflow = '';
-  }, 2600); // Logo após o início do fade-out
+  }, 2300); // Logo após o início do fade-out
 }
 
 // Efeito de paralaxe para o fundo

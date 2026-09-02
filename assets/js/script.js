@@ -1,151 +1,79 @@
 'use strict';
 
-// Função para alternar elementos
-const elementToggleFunc = function (elem) { elem.classList.toggle("active"); }
+const header = document.querySelector('[data-header]');
+const navToggle = document.querySelector('[data-nav-toggle]');
+const mobileMenu = document.querySelector('[data-mobile-menu]');
+const navLinks = document.querySelectorAll('.nav a, .mobile-menu a');
+const sections = document.querySelectorAll('main section[id]');
+const filterButtons = document.querySelectorAll('[data-filter]');
+const projectCards = document.querySelectorAll('.project-card');
+const form = document.querySelector('[data-form]');
+const yearEl = document.querySelector('[data-year]');
 
-// Variáveis da barra lateral
-const sidebar = document.querySelector("[data-sidebar]");
-const sidebarBtn = document.querySelector("[data-sidebar-btn]");
+if (yearEl) {
+  yearEl.textContent = String(new Date().getFullYear());
+}
 
-// Alternar barra lateral para dispositivos móveis
-sidebarBtn.addEventListener("click", function () { 
-  elementToggleFunc(sidebar);
+const closeMobileMenu = () => {
+  if (!mobileMenu || !navToggle) return;
+  mobileMenu.hidden = true;
+  navToggle.classList.remove('is-open');
+  navToggle.setAttribute('aria-expanded', 'false');
+  navToggle.setAttribute('aria-label', 'Abrir menu');
+};
+
+navToggle?.addEventListener('click', () => {
+  const isOpen = mobileMenu.hidden;
+  mobileMenu.hidden = !isOpen;
+  navToggle.classList.toggle('is-open', isOpen);
+  navToggle.setAttribute('aria-expanded', String(isOpen));
+  navToggle.setAttribute('aria-label', isOpen ? 'Fechar menu' : 'Abrir menu');
 });
 
-// Variáveis de depoimentos
-const testimonialsItem = document.querySelectorAll("[data-testimonials-item]");
-const modalContainer = document.querySelector("[data-modal-container]");
-const modalCloseBtn = document.querySelector("[data-modal-close-btn]");
-const overlay = document.querySelector("[data-overlay]");
-
-// Variáveis do modal
-const modalImg = document.querySelector("[data-modal-img]");
-const modalTitle = document.querySelector("[data-modal-title]");
-const modalText = document.querySelector("[data-modal-text]");
-
-// Função para alternar o modal
-const testimonialsModalFunc = function () {
-  modalContainer.classList.toggle("active");
-  overlay.classList.toggle("active");
-}
-
-// Adiciona evento de clique a todos os itens do modal
-for (let i = 0; i < testimonialsItem.length; i++) {
-  testimonialsItem[i].addEventListener("click", function () {
-    modalImg.src = this.querySelector("[data-testimonials-avatar]").src;
-    modalImg.alt = this.querySelector("[data-testimonials-avatar]").alt;
-    modalTitle.innerHTML = this.querySelector("[data-testimonials-title]").innerHTML;
-    modalText.innerHTML = this.querySelector("[data-testimonials-text]").innerHTML;
-    
-    testimonialsModalFunc();
-  });
-}
-
-// Adiciona evento de clique ao botão de fechar o modal
-modalCloseBtn.addEventListener("click", testimonialsModalFunc);
-overlay.addEventListener("click", testimonialsModalFunc);
-
-// Variáveis do select personalizado
-const select = document.querySelector("[data-select]");
-const selectItems = document.querySelectorAll("[data-select-item]");
-const selectValue = document.querySelector("[data-selecct-value]");
-const filterBtn = document.querySelectorAll("[data-filter-btn]");
-
-select.addEventListener("click", function () { 
-  elementToggleFunc(this);
+navLinks.forEach((link) => {
+  link.addEventListener('click', () => closeMobileMenu());
 });
 
-// Adiciona evento a todos os itens do select
-for (let i = 0; i < selectItems.length; i++) {
-  selectItems[i].addEventListener("click", function () {
-    let selectedValue = this.innerText.toLowerCase();
-    selectValue.innerText = this.innerText;
-    elementToggleFunc(select);
-    
-    filterFunc(selectedValue);
+window.addEventListener('scroll', () => {
+  header?.classList.toggle('is-scrolled', window.scrollY > 8);
+}, { passive: true });
+
+const setActiveLink = (id) => {
+  document.querySelectorAll('.nav a').forEach((link) => {
+    link.classList.toggle('is-active', link.getAttribute('href') === `#${id}`);
   });
-}
+};
 
-// Variáveis do filtro
-const filterItems = document.querySelectorAll("[data-filter-item]");
-
-// Função de filtro
-const filterFunc = function (selectedValue) {
-  for (let i = 0; i < filterItems.length; i++) {
-    if (selectedValue === "all") {
-      filterItems[i].classList.add("active");
-    } else if (selectedValue === filterItems[i].dataset.category) {
-      filterItems[i].classList.add("active");
-    } else {
-      filterItems[i].classList.remove("active");
-    }
-  }
-}
-
-// Adiciona evento a todos os botões de filtro para telas grandes
-let lastClickedBtn = filterBtn[0];
-
-for (let i = 0; i < filterBtn.length; i++) {
-  filterBtn[i].addEventListener("click", function () {
-    let selectedValue = this.innerText.toLowerCase();
-    selectValue.innerText = this.innerText;
-    
-    filterFunc(selectedValue);
-
-    lastClickedBtn.classList.remove("active");
-    this.classList.add("active");
-    lastClickedBtn = this;
+const spy = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) setActiveLink(entry.target.id);
   });
-}
-
-// Variáveis do formulário de contato
-const form = document.querySelector("[data-form]");
-const formInputs = document.querySelectorAll("[data-form-input]");
-const formBtn = document.querySelector("[data-form-btn]");
-
-// Adiciona evento a todos os campos do formulário
-for (let i = 0; i < formInputs.length; i++) {
-  formInputs[i].addEventListener("input", function () {
-    // Verifica a validação do formulário
-    if (form.checkValidity()) {
-      formBtn.removeAttribute("disabled");
-    } else {
-      formBtn.setAttribute("disabled", "");
-    }
-  });
-}
-
-// Redirecionamento para o WhatsApp ao enviar o formulário
-form.addEventListener("submit", function (event) {
-  event.preventDefault(); // Impede o envio padrão do formulário
-
-  // Coleta os valores do formulário
-  const name = form.querySelector("input[name='fullname']").value;
-  const email = form.querySelector("input[name='email']").value;
-  const message = form.querySelector("textarea[name='message']").value;
-
-  // Cria a mensagem formatada
-  const whatsappMessage = `Olá, meu nome é ${name}. Meu e-mail é ${email}. Minha mensagem: ${message}`;
-
-  // Codifica a mensagem para a URL
-  const encodedMessage = encodeURIComponent(whatsappMessage);
-  const phoneNumber = "+55098981358595";
-  window.location.href = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+}, {
+  rootMargin: '-40% 0px -50% 0px',
+  threshold: 0
 });
 
-const navigationLinks = document.querySelectorAll("[data-nav-link]");
-const pages = document.querySelectorAll("[data-page]");
-for (let i = 0; i < navigationLinks.length; i++) {
-  navigationLinks[i].addEventListener("click", function () {
-    for (let i = 0; i < pages.length; i++) {
-      if (this.innerHTML.toLowerCase() === pages[i].dataset.page) {
-        pages[i].classList.add("active");
-        navigationLinks[i].classList.add("active");
-        window.scrollTo(0, 0);
-      } else {
-        pages[i].classList.remove("active");
-        navigationLinks[i].classList.remove("active");
-      }
-    }
+sections.forEach((section) => spy.observe(section));
+
+filterButtons.forEach((button) => {
+  button.addEventListener('click', () => {
+    const filter = button.dataset.filter;
+    filterButtons.forEach((item) => item.classList.remove('is-active'));
+    button.classList.add('is-active');
+
+    projectCards.forEach((card) => {
+      const show = filter === 'all' || card.dataset.category === filter;
+      card.classList.toggle('is-hidden', !show);
+    });
   });
-}
+});
+
+form?.addEventListener('submit', (event) => {
+  event.preventDefault();
+  const data = new FormData(form);
+  const name = String(data.get('fullname') || '').trim();
+  const email = String(data.get('email') || '').trim();
+  const message = String(data.get('message') || '').trim();
+  const text = `Olá, meu nome é ${name}. Meu e-mail é ${email}. ${message}`;
+  window.open(`https://wa.me/55098981358595?text=${encodeURIComponent(text)}`, '_blank', 'noopener');
+});
